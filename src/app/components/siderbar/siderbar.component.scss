@@ -1,0 +1,10 @@
+:host{
+    .sidebar {
+        min-height: calc(100vh - 20px);
+        background: rgba($color: #000000, $alpha: .9);
+    }
+
+    .sidebar .nav-item .nav-link {
+        color: white;
+    }
+}

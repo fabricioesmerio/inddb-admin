@@ -1,0 +1,18 @@
+<ul class="sidebar navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="index.html">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Banco Local</span>
+      </a>
+    </li>
+    <li class="nav-item dropdown" *ngFor="let db of baseDados">
+      <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-fw fa-folder"></i>
+        <span>{{ db }}</span>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+        <h6 class="dropdown-header">Tabelas:</h6>
+        <a class="dropdown-item" href="#" *ngFor="let tab of tables" (click)="getData(tab)"> {{ tab.name }}</a>
+      </div>
+    </li>
+  </ul>

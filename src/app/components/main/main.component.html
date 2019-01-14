@@ -1,0 +1,53 @@
+<div id="content-wrapper">
+
+  <div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12 text-row" *ngIf="!showDataTable">
+            <blockquote class="blockquote">
+              <p class="mb-0">
+                Bem-vindo ao IndexedDB Admin. Aqui você tem acesso aos dados salvos na base de dados local do seu navegador.
+              </p>
+              <footer class="blockquote-footer">
+                No menu ao lado, clique na tabela de sua escolha.
+              </footer>
+            </blockquote>
+          </div>
+    </div>
+
+    <!-- DataTables -->
+    <div class="card mb-3" *ngIf="showDataTable">
+      <div class="card-header">
+        <i class="fas fa-table"></i>
+        Dados IndexedDB - tabela {{selectedTable.name.toUpperCase()}}</div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <p-table [value]="data" [columns]="fields" [paginator]="true" [rows]="10">
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th *ngFor="let col of columns">{{col.toUpperCase()}}</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+              <tr>
+                <td *ngFor="let col of columns">{{rowData[col]}}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container-fluid -->
+
+  <!-- Sticky Footer -->
+  <footer class="sticky-footer">
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <span>Copyright © Fabrício Esmério {{ year }}</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
